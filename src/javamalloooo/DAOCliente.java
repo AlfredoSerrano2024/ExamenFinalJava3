@@ -35,6 +35,18 @@ public class DAOCliente {
         session.save(reservacion);
         cerrarTodo();
     }
+    
+    public void actualizar(Cliente c)throws Exception{
+        session.update(c);
+        cerrarTodo();
+    }
+    
+    public void borrar(Integer id) throws Exception{
+       Cliente c=new Cliente ();
+       c.setIdCliente(id);
+       session.delete(c);
+       cerrarTodo();
+    }
 
     ArrayList<Cliente> buscarTodos() throws Exception{
   ArrayList<Cliente>clientes=  (ArrayList<Cliente>) session.createCriteria(Cliente.class).list();
